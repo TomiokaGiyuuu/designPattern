@@ -4,9 +4,10 @@ import ProductList from "./pages/ProductList";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Redirect, Route, Routes} from "react-router-dom";
 
 const App = () => {
+  const user = true;
   return (
       <BrowserRouter>
   <Routes>
@@ -14,12 +15,14 @@ const App = () => {
       <Home/>
     }/>
     <Route path="/login" element={
-      <Login/>
+      user ? <Navigate to="/"/>
+          : <Login/>
     }/>
     <Route path="/register" element={
-      <Register/>
+      user ? <Navigate to="/"/>
+          : <Register/>
     }/>
-    <Route path="/productlist" element={
+    <Route path="/products/:category" element={
       <ProductList/>
     }/>
     <Route path="/cart" element={

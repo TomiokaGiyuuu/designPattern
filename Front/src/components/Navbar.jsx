@@ -92,7 +92,7 @@ const Navbar = () => {
           </Link>
         </Left>
         <Center>
-          <Link to = '/productlist'>
+          <Link to = '/products/all'>
           <Navcat>
             Menu
           </Navcat>
